@@ -1,9 +1,15 @@
 /**
+ * @this Monitor_Emitter
  * 
- * 自实现 监听
+ * =========================
+ * en
+ * `init` can be added anywhere
+ * `addListener 'can only be added here in `componentDidMount`
  * 
  * -------------------------
- * 添加监听，只能在 componentDidMount 这里
+ * zh
+ * `init` 可以添加任何地方
+ * `addListener` 添加监听，只能在 `componentDidMount` 这里
  * 
  */
 import React from 'react';
@@ -13,7 +19,7 @@ export default class RXEmitter {
   /**
    * init 
    */
-  static initEmitter() { //在app Root(index.js) 里面添加的
+  static init() { //在app Root(index.js) 里面添加的
     this.store = {};
     this.refMapOfName = {};
   }
