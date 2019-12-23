@@ -13,6 +13,7 @@
  * 
  */
 import React from 'react';
+import { findNodeHandle } from 'react-native';
 
 export default class RXEmitter {
   
@@ -32,7 +33,7 @@ export default class RXEmitter {
    * @param {*} callback 
    */
   static addListener(ref=null, name='', callback=null) {
-    if(!ref || !React.isValidElement(ref)) {
+    if(!ref || !findNodeHandle(ref)) {
       console.error('MonitorEmitter `addListener` ref = null');
       return;
     }
@@ -62,7 +63,7 @@ export default class RXEmitter {
    * @param {*} name 
    */
   static removeLister(ref=null, name=null) {
-    if(!ref || !React.isValidElement(ref)) {
+    if(!ref || !findNodeHandle(ref)) {
       console.error('MonitorEmitter `removeLister` ref = null');
       return;
     }
@@ -94,8 +95,8 @@ export default class RXEmitter {
     
     var refMap = this.store[name] || {};
     for(let key in refMap) {
-      let ref = refMap[key];
-      ref.callback(obj);
+      let callback = refMap[key];
+      callback(obj);
     }
   }
 
