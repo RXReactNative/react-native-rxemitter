@@ -1,10 +1,5 @@
 declare module 'react-native-rxemitter' {
-  import React from 'react'
-
   export class RXEmitter {
-    /**  */
-    static init: () => void;
-
     /**  */
     static addListener: (
       ref: JSX.Element, 
@@ -15,13 +10,13 @@ declare module 'react-native-rxemitter' {
     /**  */
     static removeLister: (
       ref: JSX.Element, 
-      name: string, 
+      name?: string, 
     ) => void;
 
     /**  */
     static emit: (
       name: string, 
-      obj: T<any>  //map 、 Dictionary
+      obj?: T<any>  //map 、 Dictionary 、null
     ) => void;
 
   }

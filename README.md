@@ -1,13 +1,12 @@
 # react-native-rxemitter
 
-`广播`
+React-Native : `Broadcast notification` - `广播`
 
 `$ npm install react-native-rxemitter --save`
 
-```js
-//init 
-RXEmitter.init();
+## Usage
 
+```js
 //- - - - 
 // add listener (componentDidMount)
 RXEmitter..addListener(this, 'gotoHome', ()=>{
@@ -17,6 +16,6 @@ RXEmitter..addListener(this, 'gotoHome', ()=>{
 RXEmitter.remove(this, 'gotoHome');
 
 //- - - - 
-//send eitter
+// send eitter (anywhere)
 RXEmitter.emit('gotoHome');
 ```

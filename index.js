@@ -1,28 +1,46 @@
 /**
- * @this Monitor_Emitter
+ * @this Emitter
  * 
  * =========================
  * en
- * `init` can be added anywhere
  * `addListener 'can only be added here in `componentDidMount`
  * 
  * -------------------------
  * zh
- * `init` 可以添加任何地方
  * `addListener` 添加监听，只能在 `componentDidMount` 这里
  * 
  */
-import React from 'react';
-import { findNodeHandle } from 'react-native';
 
 export default class RXEmitter {
-  
   /**
-   * init 
+   * init <-> setter / getter
    */
-  static init() { //在app Root(index.js) 里面添加的
-    this.store = {};
-    this.refMapOfName = {};
+  static get store() {
+    if(!this._store) {
+      this._store = {};
+    }
+    return this._store;
+  }
+
+  static set store(val=null) {
+    if(!this._store) {
+      this._store = {};
+    }
+    this._store = val;
+  }
+
+  static get refMapOfName() {
+    if(!this._refMapOfName) {
+      this._refMapOfName = {};
+    }
+    return this._refMapOfName;
+  }
+
+  static set refMapOfName(val=null) {
+    if(!this._refMapOfName) {
+      this._refMapOfName = {};
+    }
+    this._refMapOfName = val;
   }
 
   /**
@@ -33,18 +51,18 @@ export default class RXEmitter {
    * @param {*} callback 
    */
   static addListener(ref=null, name='', callback=null) {
-    if(!ref || !findNodeHandle(ref)) {
-      console.error('MonitorEmitter `addListener` ref = null');
+    if(!ref) {
+      this._log('react-native-rxemitter `addListener` ref = null');
       return;
     }
 
     if(!name || typeof name !== 'string') {
-      console.error('MonitorEmitter `addListener` name = null');
+      this._log('react-native-rxemitter `addListener` name = null');
       return;
     }
 
     if(!callback || typeof callback !== 'function') {
-      console.error('MonitorEmitter `addListener` callback = null');
+      this._log('react-native-rxemitter `addListener` callback = null');
       return;
     }
     let refMap = this.store[name] || {};
@@ -63,8 +81,8 @@ export default class RXEmitter {
    * @param {*} name 
    */
   static removeLister(ref=null, name=null) {
-    if(!ref || !findNodeHandle(ref)) {
-      console.error('MonitorEmitter `removeLister` ref = null');
+    if(!ref) {
+      this._log('react-native-rxemitter `removeLister` ref = null');
       return;
     }
 
@@ -89,7 +107,7 @@ export default class RXEmitter {
    */
   static emit(name='', obj={}) {
     if(!name || typeof name !== 'string') {
-      console.error('MonitorEmitter `emit` name = null');
+      this._log('react-native-rxemitter `emit` name = null');
       return;
     }
     
@@ -126,5 +144,14 @@ export default class RXEmitter {
           this.refMapOfName[ref] = nameArray;
         }
       }
+  }
+
+  static _log(msg='') {
+    if(__DEV__) {
+      console.error(msg);
+    }
+    else {
+      console.warn('msg')
+    }
   }
 }
