@@ -16,7 +16,7 @@ declare module 'react-native-rxemitter' {
     /**  */
     static emit: (
       name: string, 
-      obj?: T<any>  //map 、 Dictionary 、null
+      obj?: any  //any
     ) => void;
 
   }

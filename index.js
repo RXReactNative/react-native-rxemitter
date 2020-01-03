@@ -105,7 +105,7 @@ export default class RXEmitter {
    * @param {*} name 
    * @param {*} obj 
    */
-  static emit(name='', obj={}) {
+  static emit(name='', obj=null) {
     if(!name || typeof name !== 'string') {
       this._log('react-native-rxemitter `emit` name = null');
       return;
@@ -114,7 +114,10 @@ export default class RXEmitter {
     var refMap = this.store[name] || {};
     for(let key in refMap) {
       let callback = refMap[key];
-      callback(obj);
+      if(obj) {
+        callback(obj);
+      }
+      else callback();
     }
   }
 
