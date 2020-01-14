@@ -25,12 +25,8 @@
       "type": "git",
       "url": "git@github.com:RXReactNative/react-native-rxemitter.git"
   },
-  "peerDependencies": {
-    "react-native": ">=0.41.2"
-  },
   "devDependencies": {
       "react": "^16.0.0",
-      "react-native": "^0.41.2",
-      "prop-types": "*"
+      "react-native": "^0.41.2"
   }
 }
