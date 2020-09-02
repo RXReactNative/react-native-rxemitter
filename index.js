@@ -151,16 +151,23 @@ export default class RXEmitter {
     }
   }
 
-  static _env_development() {
-    if (__DEV__) { // React-Native -> development
+ /* eslint-disable */  
+ static _env_development() {
+  try {
+    const env = process.env || {NODE_ENV: 'production'}
+    const envDevelopment = env.NODE_ENV || 'production'
+    if (envDevelopment === 'development') { 
+      // Vue / Nuxt -> development
       return true;
-    } else { // Vue / Nuxt -> development
-      const env = process.env || {NODE_ENV: 'production'}
-      const envDevelopment = Env.NODE_ENV || 'production'
-      if (envDevelopment === 'development') {
-        return true;
-      }
     }
-    return false;
+    else if (__DEV__) { 
+      // React-Native -> development
+      return true;
+    } 
+  } catch (error) {
+    // console.log('react-native-rxemitter `_env_development` error=', error)
   }
+  return false;
+}
+/* eslint-disable */
 }
