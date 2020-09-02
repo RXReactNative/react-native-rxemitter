@@ -1,18 +1,29 @@
 # react-native-rxemitter
 
-React-Native : `Broadcast notification` - `广播`
+React-Native / Vue / Nuxt <br>
+: `Broadcast notification` - `广播`
 
-`$ npm install react-native-rxemitter --save`
+<br>
+
+```sh
+    npm install react-native-rxemitter --save-dev
+    
+    # or
+    yarn add react-native-rxemitter --dev
+```
 
 ## Usage
 
 ```js
 //- - - - 
-// add listener (componentDidMount)
-RXEmitter..addListener(this, 'gotoHome', ()=>{
+// add listener (React -> componentDidMount)
+//              (Vue/Nuxt -> created)
+RXEmitter.addListener(this, 'gotoHome', ()=>{
   // ...
 });
-// remove listener (componentWillUnmount)
+
+// remove listener (React -> componentWillUnmount)
+//                 (Vue/Nuxt -> destroyed)
 RXEmitter.remove(this, 'gotoHome');
 
 //- - - - 

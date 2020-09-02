@@ -1,8 +1,8 @@
 
 {
   "name": "react-native-rxemitter",
-  "version": "0.0.3",
-  "description": "React Native RXEmitter for IOS & Android & windows.",
+  "version": "0.0.4",
+  "description": "'Vue/Nuxt' 、'React Native': RXEmitter for IOS & Android & windows.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
