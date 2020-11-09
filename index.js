@@ -135,7 +135,9 @@ export default class RXEmitter {
       }
 
       let nameArray = this.refMapOfName[ref] || [];
-      nameArray.remove(name);
+      if (nameArray && Array.isArray(nameArray) && nameArray.length) {
+        nameArray.remove && nameArray.remove(name);
+      }
       nameArray = nameArray || [];
       if (nameArray.length) {
         delete this.refMapOfName[ref];
