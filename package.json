@@ -1,32 +1,23 @@
 
 {
   "name": "react-native-rxemitter",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "'Vue/Nuxt' 、'React Native': RXEmitter for IOS & Android & windows.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native",
     "emitter",
-    "rxemitter",
-    "react-component",
-    "react native emitter",
-    "react-native-rxemitter",
-    "react native rxemitter",
-    "ios",
-    "android",
-    "windows"
+    "react",
+    "Vue",
+    "Nuxt",
+    "react-native"
   ],
   "author": "srxboys (https://github.com/srxboys)",
   "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "git@github.com:RXReactNative/react-native-rxemitter.git"
-  },
-  "devDependencies": {
-      "react": "^16.0.0",
-      "react-native": "^0.41.2"
+    "type": "git",
+    "url": "git@github.com:RXReactNative/react-native-rxemitter.git"
   }
 }

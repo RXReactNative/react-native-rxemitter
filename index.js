@@ -94,7 +94,7 @@ export default class RXEmitter {
       // remove `name` all
       const nameArray = this.refMapOfName[ref] || [];
       for (const key in nameArray) {
-        const name = nameArray(key);
+        const name = nameArray[key];
         this._removeLisForName(ref, name);
       }
     }
