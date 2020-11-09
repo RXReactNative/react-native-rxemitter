@@ -1,18 +1,18 @@
 /**
  * @this Emitter
- * 
+ *
  * =========================
  * React-Native
  * en
  * `addListener 'can only be added here in `componentDidMount`
- * 
+ *
  * -------------------------
  * zh
  * `addListener` 添加监听，只能在 `componentDidMount` 这里
- * 
+ *
  * =========================
  * Vue / Nuxt
- * 
+ *
  */
 
 export default class RXEmitter {
@@ -110,7 +110,7 @@ export default class RXEmitter {
       this._log('react-native-rxemitter `emit` name = null');
       return;
     }
-    
+
     const refMap = this.store[name] || {};
     for (const key in refMap) {
       const callback = refMap[key];
@@ -125,49 +125,48 @@ export default class RXEmitter {
   // private function
   static _removeLisForName(ref = '', name = '') {
     let refMap = this.store[name] || {};
-      if (refMap[ref]) {
-        delete refMap[ref];
-        refMap = refMap || {};
-        if (JSON.stringify(refMap) === '{}') {
-          delete this.store[name];
-        } else {
-          this.store[name] = refMap;
-        }
-
-        let nameArray = this.refMapOfName[ref] || [];
-        nameArray.remove(name);
-        nameArray = nameArray || [];
-        if (nameArray.length) {
-          delete this.refMapOfName[ref];
-        } else {
-          this.refMapOfName[ref] = nameArray;
-        }
+    if (refMap[ref]) {
+      delete refMap[ref];
+      refMap = refMap || {};
+      if (JSON.stringify(refMap) === '{}') {
+        delete this.store[name];
+      } else {
+        this.store[name] = refMap;
       }
+
+      let nameArray = this.refMapOfName[ref] || [];
+      nameArray.remove(name);
+      nameArray = nameArray || [];
+      if (nameArray.length) {
+        delete this.refMapOfName[ref];
+      } else {
+        this.refMapOfName[ref] = nameArray;
+      }
+    }
   }
 
   static _log(msg = '') {
     if (this._env_development()) {
-      console.warn('msg', msg)
+      console.warn('msg', msg);
     }
   }
 
- /* eslint-disable */  
- static _env_development() {
-  try {
-    const env = process.env || {NODE_ENV: 'production'}
-    const envDevelopment = env.NODE_ENV || 'production'
-    if (envDevelopment === 'development') { 
-      // Vue / Nuxt -> development
-      return true;
+  /* eslint-disable */
+  static _env_development() {
+    try {
+      const env = process.env || { NODE_ENV: 'production' };
+      const envDevelopment = env.NODE_ENV || 'production';
+      if (envDevelopment === 'development') {
+        // Vue / Nuxt -> development
+        return true;
+      } else if (__DEV__) {
+        // React-Native -> development
+        return true;
+      }
+    } catch (error) {
+      // console.log('react-native-rxemitter `_env_development` error=', error)
     }
-    else if (__DEV__) { 
-      // React-Native -> development
-      return true;
-    } 
-  } catch (error) {
-    // console.log('react-native-rxemitter `_env_development` error=', error)
+    return false;
   }
-  return false;
-}
-/* eslint-disable */
+  /* eslint-disable */
 }
