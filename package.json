@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-rxemitter",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "'Vue/Nuxt' 、'React Native': RXEmitter for IOS & Android & windows.",
   "main": "index.js",
   "scripts": {

@@ -6,7 +6,7 @@ declare module 'react-native-rxemitter' {
   export function addListener (
     ref: any, //not null, Suggestion string
     name: string, 
-    callback: function
+    callback: (args: object | null) => void
   ): void;
 
   /** 
