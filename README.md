@@ -7,7 +7,7 @@ React-Native / Vue / Nuxt <br>
 
 ```sh
     npm install react-native-rxemitter --save-dev
-    
+
     # or
     yarn add react-native-rxemitter --dev
 ```
@@ -15,7 +15,7 @@ React-Native / Vue / Nuxt <br>
 ## Usage
 
 ```js
-//- - - - 
+//- - - -
 // add listener (React -> componentDidMount)
 //              (Vue/Nuxt -> created)
 RXEmitter.addListener(this, 'gotoHome', ()=>{
@@ -26,7 +26,7 @@ RXEmitter.addListener(this, 'gotoHome', ()=>{
 //                 (Vue/Nuxt -> destroyed)
 RXEmitter.remove(this, 'gotoHome');
 
-//- - - - 
+//- - - -
 // send eitter (anywhere)
 RXEmitter.emit('gotoHome');
 ```

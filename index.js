@@ -149,7 +149,7 @@ export default class RXEmitter {
 
   static _log(msg = '') {
     if (this._env_development()) {
-      console.warn('msg', msg);
+      console.error('RXEmitter', msg);
     }
   }
 

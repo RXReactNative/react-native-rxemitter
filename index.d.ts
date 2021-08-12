@@ -1,24 +1,24 @@
 declare module 'react-native-rxemitter' {
   /**
-   * add 
+   * add
    * @in `componentDidMount`
    */
-  export function addListener (
+  export function addListener(
     ref: any, //not null, Suggestion string
-    name: string, 
+    name: string,
     callback: (args: object | null) => void
   ): void;
 
-  /** 
+  /**
    * remove
    * @in anywhere
    */
-  export function removeLister (
+  export function removeLister(
     ref: any, //not null, Suggestion string
-    name?: string, 
+    name?: string,
   ): void;
 
-  /** 
+  /**
    * emit send
    * @in anywhere
    */
